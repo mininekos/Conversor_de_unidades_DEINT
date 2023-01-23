@@ -9,6 +9,8 @@ public partial class MenuConversorUnidades : ContentPage
 
     private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
     {
-
+		Grid grid= (Grid)sender;
+		Label lbl= grid.Children[1] as Label;
+		Navigation.PushAsync(new Conversor(lbl.Text));
     }
 }
