@@ -22,6 +22,8 @@
             <Label
                 x:Name="txtTexto"
                 BackgroundColor="{StaticResource AppColor4}"
+                FontSize="Subtitle"
+                FontAttributes="Bold"
                 />
         </Grid>
         <Grid
@@ -34,6 +36,8 @@
                 x:Name="entryMedida"
                 Grid.Row="0"
                 FontSize="100"
+                TextChanged="entryMedida_TextChanged"
+                HorizontalTextAlignment="Center"
                 />
             <Picker
                 x:Name="pickerConvertir"
@@ -50,10 +54,12 @@
                 x:Name="lblConvertido"
                 Grid.Row="0"
                 FontSize="100"
+                HorizontalTextAlignment="Center"
                 />
             <Picker
                 x:Name="pickerConvertido"
                 Grid.Row="1"
+                SelectedIndexChanged="pickerConvertido_SelectedIndexChanged"
                 />
         </Grid>
     </Grid>

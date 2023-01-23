@@ -8,12 +8,16 @@ public partial class Conversor : ContentPage
 
 	public ObservableCollection<string> FromMedidas { get; set; }
 	public ObservableCollection<string> ToMedidades { get; set; }
+
+    private Boolean cargado = false;
 	
 	string QuantityName;
     public Conversor()
 	{
 		InitializeComponent();
-	}
+        
+
+    }
 
     public Conversor(string s)
     {
@@ -32,6 +36,8 @@ public partial class Conversor : ContentPage
         
         pickerConvertido.ItemsSource = ToMedidades.ToList();
         pickerConvertido.SelectedIndex = 1;
+
+        cargado = true;
 
     }
 
@@ -90,5 +96,17 @@ public partial class Conversor : ContentPage
             pickerConvertido.SelectedItem.ToString()
             ).ToString();
         lblConvertido.Text = result;
+    }
+
+    private void entryMedida_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if(!entryMedida.Text.Equals("") && cargado)
+            convertirUnidades();
+    }
+
+    private void pickerConvertido_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (cargado)
+            convertirUnidades();
     }
 }
